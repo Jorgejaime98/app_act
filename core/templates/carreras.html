@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block background %}{% load static %}{% static 'img/portada.jpg' %}{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="col-md-8" style="margin-top: 70px;">
+
+            <h2> Carreras </h2>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Titulo</th>
+                        <th>Tiempo</th>
+                        <th>Jornada</th>
+
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for carrera in carreras %}
+                        <tr>
+                            <td>{{ carrera.nombre }}</td>
+                            <td>{{ carrera.titulo }}</td>
+                            <td>{{ carrera.tiempo }}</td>
+                            <td>{{ carrera.jornada }}</td>
+
+                            <td><a class="nav-link" href="{% url 'modificar_carrera' carrera.id %}">editar</a></td>
+                            <td><a class="nav-link" href="{% url 'eliminar_carrera' carrera.id %}">eliminar</a></td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a class="nav-link" href="{% url 'crear_carrera' %}">Crear Nueva Carrera</a>
+
+        </div>
+    </div>
+{% endblock %}

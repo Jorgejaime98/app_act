@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block background %}{% load static %}{% static 'img/portada.jpg' %}{% endblock %} <!--si está bien, me presenta la img y el registro-->
+
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-8" style="margin-top: 70px;">
+
+            <h2> Curso </h2>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>alumno</th>
+                        <th>paralelo</th>
+                        <th>materia</th>
+                        <th>profesor</th>
+
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for curso01 in cursos01 %}
+                        <tr>
+                            <td>{{ curso01.alumno }}</td>
+                            <td>{{ curso01.paralelo }}</td>
+                            <td>{{ curso01.materia }}</td>
+                            <td>{{ curso01.profesor }}</td>
+
+                            <td><a class="nav-link" href="{% url 'modificar_curso01' curso01.id %}">editar</a></td>
+                            <td><a class="nav-link" href="{% url 'eliminar_curso01' curso01.id %}">eliminar</a></td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a class="nav-link" href="{% url 'crear_curso01' %}">Crear Registro Curso</a>
+
+        </div>
+    </div>
+{% endblock %}

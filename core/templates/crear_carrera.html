@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Consutar Carrera {% endblock title %}
+{% block background %}{%load static%}{% static 'img/.jpg' %}{% endblock %} <!--Falta img-->
+{% block header %}
+    <h2> Crear Carrera </h2>
+    <form method="POST" action = "{% url 'crear_carrera' %}">
+        {% csrf_token %}
+        {{ formCarrera.as_p  }}
+
+        <input type="submit" value="Crear Carrera" />
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Eliminar Carrera {% endblock title %}
+
+{% block background %}{%load static%}{% static 'img/.jpg' %}{% endblock %}
+
+{% block content %}
+    <h2> Eliminar Carrera </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+             {{ formCarrera.as_p  }}
+        <button type="submit" >Eliminar Carrera</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Eliminar Registro Curso {% endblock title %}
+
+{% block background %}{%load static%}{% static 'img/.jpg' %}{% endblock %}
+
+{% block content %}
+    <h2> Eliminar Registro Curso </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+             {{ formCurso01.as_p  }}
+        <button type="submit" >Eliminar Registro Curso</button>
+    </form>
+
+{% endblock %}

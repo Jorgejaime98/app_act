@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Crear Estudiante {% endblock title %}
+{% block background %}{%load static%}{% static 'img/crear-estudiante.jpg' %}{% endblock %} <!--Si funciona la img-->
+{% block header %}
+    <h2> Crear Estudiante </h2>
+    <form method="POST" action = "{% url 'crearestudiante' %}">
+        {% csrf_token %}
+        {{ formEstudiante.as_p  }}
+
+        <input type="submit" value="Crear Estudiante" />
+    </form>
+{% endblock %}

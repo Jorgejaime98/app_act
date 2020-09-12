@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Modificar Carrera {% endblock title %}
+
+{% block background %}{%load static%}{% static 'img/.jpg' %}{% endblock %}
+
+{% block content %}
+    <h2> Modificar Carrera </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+             {{ formCarrera.as_p  }}
+        <button type="submit" >Modificar Carrera</button>
+    </form>
+
+{% endblock %}

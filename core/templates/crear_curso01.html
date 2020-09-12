@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Crear Curso {% endblock title %}
+
+{% block background %}{%load static%}{% static 'img/.jpg' %}{% endblock %}
+{% block header %}
+    <h2> Crear Registro Curso </h2>
+    <form method="POST" action = "{% url 'crear_curso01' %}">
+        {% csrf_token %}
+        {{ formCurso01.as_p }}
+
+        <input type="submit" value="Crear Docente" />
+    </form>
+{% endblock %}
